@@ -1,0 +1,145 @@
+/* Checkboxes
+   ========================================================================== */
+// Checkbox Styles
+[type="checkbox"] {
+  // Text Label Style
+  + label {
+    font-family: 'DM-Sans-Regular';
+    padding-left: 36px;
+    font-size: $medium-fontsize;
+    line-height: 22px;
+    font-style: normal;
+    font-weight: normal;
+    margin-bottom: 10px;
+
+  }
+
+  /* checkbox aspect */
+  + label:before,
+  &:not(.filled-in) + label:after {
+    width: $checkbox-small-size;
+    height: $checkbox-small-size;
+    margin-top: 3px;
+  }
+}
+
+
+
+[type="checkbox"]:checked {
+  + label:before {
+     top: 0px;
+     left: 0px;
+     width: $checkbox-tick-width;
+     height: $checkbox-tick-height;
+    background-color: transparent;
+    border: 1px solid #000;
+  }
+
+   +label:after {
+    background-color: $primary_1;
+    transform: scale(1);
+
+    }
+}
+
+/* Indeterminate checkbox */
+[type="checkbox"]:indeterminate {
+  +label:before {
+    border-right: 2px solid $primary-color;
+  }
+}
+
+// Filled in Style
+[type="checkbox"].filled-in {
+  &:not(:checked) + label:after {    
+    background-color: transparent;
+    border: 1px solid $df-light-gray;
+    z-index: 0;     
+    border-radius: 4px;
+  }
+
+  // Checked style
+  &:checked {
+    + label:before {
+      top: -3px;
+    //   left: 2px;
+    //   width: $checkbox-tick-width;
+    //   height: $checkbox-tick-height;
+    }
+
+    + label:after {
+      top: -2px;
+      border: 2px solid $df-darker-blue-secondary;
+      background-color: $df-darker-blue-secondary;
+      z-index: 0;
+      border-radius: 4px;
+    }
+  }
+
+  &.tabbed:checked:focus + label:after {
+    background-color: $background-color;
+    border-color: $background-color;
+  }
+}
+
+[type="checkbox"],
+[type="checkbox"].filled-in  {
+  &.small-size {
+    + label:after {
+      top: 3px;
+      width: $checkbox-small-size;
+      height: $checkbox-small-size;
+    }
+
+    &:checked{
+      + label:before {
+        top: 1px;
+        left: 1px;
+        width: $checkbox-tick-width / 1.5;
+        height: $checkbox-tick-height / 1.5;
+      }
+    }
+
+    &:not(:checked) {
+      + label:before {
+        top: 10px;
+        left: 3px;        
+      }      
+    }
+  }
+
+  &.large-size {
+    + label:after {
+      top: 0;
+      width: $checkbox-large-size;
+      height: $checkbox-large-size;
+    }   
+
+    &:checked{
+      + label:before {
+        top: 0;
+      }
+    }
+
+    &:not(:checked) {
+      + label:before {
+        top: 12px;
+        left: 5px;        
+      }      
+    }
+  }
+}
+
+[type="checkbox"].filled-in {
+  &.circle {
+    + label:after{
+      border-radius: 100%;
+    }    
+  }
+
+  &.rectangle {
+    + label:after{
+      border-radius: 2px;
+    }
+  }
+}

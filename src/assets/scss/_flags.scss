@@ -1,0 +1,114 @@
+// .flag {
+//     padding-left: $dropdown-image-width;
+// }
+
+// .flag-before {
+//     @include country-flag();
+//     width: $dropdown-image-width;
+//     height: $dropdown-image-height;
+//     background-size: 950% 6000%;
+// }
+
+// $countries: (
+//     ('Abkhazia' 'AF' 'AX' 'Albania' 'DZ' 'AS' 'AD'),
+//         //Abkhazia //Afghanistan //Aland //Albania //Algeria //American-Samoa //Andora //Row1
+//     ('AO' 'AI' 'AQ' 'AG' 'AR' 'AM' 'AW'),
+//         //Angola //Anguilla //Antarctica //Antigua-and-Barbuda //Argentina //Armenia //Aruba //=Row2=
+//     ('AU' 'AT' 'AZ' 'BS' 'BH' 'BD' 'BB'),
+//         //Australia //Austria //Azerbaijan //Bahamas //Bahrain //Bangladesh //Barbados //=Row3=
+//     ('Basque-Country' 'BY' 'BE' 'BZ' 'BJ' 'BM' 'BT'),
+//         //Basque-Country //Belarus //Belgium //Belize //Benin //Bermuda //Bhutan //=Row4=
+//     ('BO' 'BA' 'BW' 'BR' 'British-Antarctic-Territory' 'VG' 'BN'),
+//         //Bolivia //Bosnia-and-Herzegovina //Botswana //Brazil //British-Antarctic-Territory //British-Virgin-Island //Brunei //=Row5=
+//     ('BG' 'BF' 'BI' 'KH' 'CM' 'CA' 'Canary-Islands'),
+//         //Bulgaria //Burkina-Faso //Burundi //Cambodia //Cameroon //Canada //Canary-Islands //=Row6=
+//     ('CV' 'KY' 'CF' 'TD' 'CL' 'CN' 'CX'),
+//         //Cape-Verde //Cayman-Islands //Central-African-Republic //Chad //Chile //China //Christmas-Island //=Row7=
+//     ('CC' 'CO' 'Commonwealth' 'KM' 'CK' 'CR' 'CI'),
+//         //Cocos-Keeling-Islands //Colombia //Commonwealth //Comoros //Cook-Islands //Costa-Rica //Cote-dIvoire //=Row8=
+//     ('HR' 'CU' 'CW' 'CY' 'CZ' 'CD' 'DK'),
+//         //Croatia //Cuba //Curacao //Cyprus //Czech-Republic //Democratic-Republic-of-the-Congo //Denmark //=Row9=
+//     ('DJ' 'DM' 'DO' 'TP' 'EC' 'EG' 'SV'),
+//         //Djibouti //Dominica //Dominican-Republic //East-Timor //Ecuador //Egypt //El-Salvador //=Row10=
+//     ('England' 'GQ' 'ER' 'EE' 'ET' 'European-Union' 'FK'),
+//         //England //Equatorial-Guinea //Eritrea //Estonia //Ethiopia //European-Union //Falkland-Islands //=Row11=
+//     ('FO' 'FJ' 'FI' 'FR' 'PF' 'TF' 'GA'),
+//         //Faroes //Fiji //Finland //France //French-Polynesia //French-Southern-Territories //Gabon //=Row12=
+//     ('GM' 'GE' 'DE' 'GH' 'GI' 'GoSquared' 'GR'),
+//         //Gambia //Georgia //Germany //Ghana //Gibraltar //GoSquared //Greece //=Row13=
+//     ('GL' 'GD' 'GU' 'GT' 'Guernsey' 'GW' 'GN'),
+//         //Greenland //Grenada //Guam //Guatemala //Guernsey //Guinea-Bissau //Guinea //=Row14=
+//     ('GY' 'HT' 'HN' 'HK' 'HU' 'IS' 'IN'),
+//         //Guyana //Haiti //Honduras //Hong-Kong //Hungary //Iceland //India //=Row15=
+//     ('ID' 'IR' 'IQ' 'IE' 'Isle-of-Man' 'IL' 'IT'),
+//         //Indonesia //Iran //Iraq //Ireland //Isle-of-Man //Israel //Italy //=Row16=
+//     ('JM' 'JP' 'Jersey' 'JO' 'KZ' 'KE' 'KI'),
+//         //Jamaica //Japan //Jersey //Jordan //Kazakhstan //Kenya //Kiribati //=Row17=
+//     ('Kosovo' 'KW' 'KG' 'LA' 'LV' 'LB' 'LS'),
+//         //Kosovo //Kuwait //Kyrgyzstan //Laos //Latvia //Lebanon //Lesotho //=Row18=
+//     ('LR' 'LY' 'LI' 'LT' 'LU' 'MO' 'MK'),
+//         //Liberia //Libya //Liechtenstein //Lithuania //Luxembourg //Macau //Macedonia //=Row19=
+//     ('MG' 'MW' 'MY' 'MV' 'ML' 'MT' 'Mars'),
+//         //Madagascar //Malawi //Malaysia //Maldives //Mali //Malta //Mars //=Row20=
+//     ('MH' 'MQ' 'MR' 'MU' 'YT' 'MX' 'FM'),
+//         //Marshall-Islands //Martinique //Mauritania //Mauritius //Mayotte //Mexico //Micronesia //=Row21=
+//     ('MD' 'MC' 'MN' 'ME' 'MS' 'MA' 'MZ'),
+//         //Moldova //Monaco //Mongolia //Montenegro //Montserrat //Morocco //Mozambique //=Row22=
+//     ('MM' 'Nagorno-Karabakh' 'NA' 'NATO' 'NR' 'NP' 'AN'),
+//         //Myanmar //Nagorno-Karabakh //Namibia //NATO //Nauru //Nepal //Netherlands-Antilles //=Row23=
+//     ('NL' 'NC' 'NZ' 'NI' 'NE' 'NG' 'NU'),
+//         //Netherlands //New-Caledonia //New-Zealand //Nicaragua //Niger //Nigeria //Niue //=Row24=
+//     ('NF' 'KP' 'Northern-Cyprus' 'Northern-Mariana-Islands' 'NO' 'Olympics' 'OM'),
+//         //Norfolk-Island //North-Korea //Northern-Cyprus //Northern-Mariana-Islands //Norway //Olympics //Oman //=Row25=
+//     ('PK' 'PW' 'PS' 'PA' 'PG' 'PY' 'PE'),
+//         //Pakistan //Palau //Palestine //Panama //Papua-New-Guinea //Paraguay //Peru //=Row26=
+//     ('PH' 'PN' 'PL' 'PT' 'PR' 'QA' 'Red-Cross'),
+//         //Philippines //Pitcairn-Islands //Poland //Portugal //Puerto-Rico //Qatar //Red-Cross //=Row27=
+//     ('CG' 'RO' 'RU' 'RW' 'BL' 'SH' 'KN'),
+//         //Republic-of-the-Congo //Romania //Russia //Rwanda //Saint-Barthelemy //Saint-Helena //Saint-Kitts-and-Nevis //=Row28=
+//     ('LC' 'MF' 'VC' 'WS' 'SM' 'ST' 'SA'),
+//         //Saint-Lucia //Saint-Martin //Saint-Vincent-and-the-Grenadines //Samoa //San-Marino //Sao-Tome-and-Principe //Saudi-Arabia //=Row29=
+//     ('Scotland' 'SN' 'RS' 'Seychelles' 'SL' 'SG' 'SK'),
+//         //Scotland //Senegal //Serbia //Seychelles //Sierra-Leone //Singapore //Slovakia //=Row30=
+//     ('SI' 'SB' 'SO' 'Somaliland' 'ZA' 'GS' 'KR'),
+//         //Slovenia //Solomon-Islands //Somalia //Somaliland //South-Africa //South-Georgia-and-the-South-Sandwich-Islands //South-Korea //=Row31=
+//     ('South-Ossetia' 'South-Sudan' 'ES' 'LK' 'SD' 'SR' 'SZ'),
+//         //South-Ossetia //South-Sudan //Spain //Sri-Lanka //Sudan //Suriname //Swaziland //=Row32=
+//     ('SE' 'CH' 'SY' 'TW' 'TJ' 'TZ' 'TH'),
+//         //Sweden //Switzerland //Syria //Taiwan //Tajikistan //Tanzania //Thailand //=Row33=
+//     ('TG' 'TK' 'TO' 'TT' 'TN' 'TR' 'TM'),
+//         //Togo //Tokelau //Tonga //Trinidad-and-Tobago //Tunisia //Turkey //Turkmenistan //=Row34=
+//     ('TC' 'TV' 'UG' 'UA' 'AE' 'GB' 'United-Nations'),
+//         //Turks-and-Caicos-Islands //Tuvalu //Uganda //Ukraine //United-Arab-Emirates //United-Kingdom  //United-Nations //=Row35=
+//     ('US' 'undefined' 'UY' 'VI' 'UZ' 'VU' 'VA'),
+//         //United-States //Unknown //Uruguay //US-Virgin-Islands //Uzbekistan //Vanuatu //Vatican-City //=Row36=
+//     ('VE' 'VN' 'Wales' 'WF' 'EH' 'YE' 'ZM'));
+//         //Venezuela //Vietnam //Wales //Wallis-And-Futuna //Western-Sahara //Yemen //Zambia //=Row37=
+// $colCount: length(nth($countries, 1)) + 1; //7+1
+// $rowCount: length($countries) + 1; //37+1
+
+// @for $r from 1 to $rowCount {
+//     @for $c from 1 to $colCount {
+//         @if ($r == 23 and $c == 6){ //Special handling for Nepal (NP) flag.
+//             @include generate-special-flag-class('#{ nth(nth( $countries, $r ), $c) }', 82%, 59.3%, 950%, 4500%);
+//         } @else {
+//             @include generate-flag-class('#{ nth(nth( $countries, $r ), $c) }', $c, $r);
+//         }
+//     }
+// }
+
+// //Last row of Flags-Sprite.
+// @include generate-flag-class('ZW', 1, 38); //Zimbabwe
+// @include generate-flag-class('GP', 2, 38); //Guadeloupe
+
+
+// //Duplication - For Countries that use the same flag as other countries.
+// @include generate-flag-class('UK', 6, 35); //United-Kingdom
+
+// @include generate-flag-class('TL', 4, 10); //Timor-Leste, Democratic Republic. //Remark - Same flag as East-Timor.
+
+// @include generate-flag-class('PM', 4, 12); //St. Pierre And Miquelon //Remark - Same flag as France.
+// @include generate-flag-class('RE', 4, 12); //Reunion //Remark - Same flag as France.
+// @include generate-flag-class('GF', 4, 12); //French Guiana //Remark - Same flag as France.
+
+// @include generate-flag-class('UM', 1, 36); //United States Minor Outlying Islands //Remark - Same flag as US.

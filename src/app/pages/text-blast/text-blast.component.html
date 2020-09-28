@@ -1,0 +1,55 @@
+<div class="bg-header">
+  <div class="custom-container">
+    <div class="row">
+      <div class="col s12">
+        <h1 class="header-title">Message Blast</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="custom-container textarea-padding">
+  <div class="row">
+    <div class="col s12">
+      <textarea id="textblast"  placeholder="enter your message..." name="textblast" rows="50" cols="50">
+        </textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 text-right">
+      <button class="custom-button" (click)="postMessage()">
+        Send
+      </button>
+    </div>
+  </div>
+  <div class="row region-padding">
+    <div class="col s12">
+      <label for="region">Choose a Region: </label>
+        <select name="region-name" id="region">
+          <option value="Cebu">Cebu</option>
+          <option value="Bukidnon">Bukidnon</option>
+          <option value="IloIlo">IloIlo</option>
+          <option value="Misamis Occidental">Misamis Occidental</option>
+          <option value="South Cotabato">South Cotabato</option>
+          <option value="Davao del Sur">Davao del Sur</option>
+        </select>
+    </div>
+  </div>
+  <div class="row" *ngFor="let contact of contactList; let i = index">
+    <div class="col s3">
+      <p>{{contact?.name}}</p>
+    </div>
+    <div class="col s3">
+      <input class="sms-class" type="checkbox" (change)="checkValue($event, 'sms', contact)" id="sms{{i}}" />
+      <label for="sms{{i}}">SMS</label>
+    </div>
+    <div class="col s3">
+      <input class="viber-class" type="checkbox" id="viber{{i}}" />
+      <label for="viber{{i}}">VIBER</label>
+    </div>
+    <div class="col s3">
+      <input class="email-class" type="checkbox" (change)="checkValue($event, 'email', contact)" id="email{{i}}" />
+      <label for="email{{i}}">EMAIL</label>
+    </div>
+  </div>
+</div>

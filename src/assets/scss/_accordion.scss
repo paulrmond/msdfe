@@ -1,0 +1,44 @@
+.accordion {
+  .header {
+    color: $secondary-color;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .content {}
+  .arrow {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .arrow-down {
+    @extend .arrow;
+    @include caret("down");
+    @include single-transition-set(all, 0.25s, ease-in-out);
+  }
+  .arrow-up {
+    @extend .arrow;
+    @include caret("up");
+    @include single-transition-set(all, 0.25s, ease-in-out);
+  }
+  .select-wrapper {
+    input.select-dropdown {
+      font-size: $normal-fontsize;
+      color: $input-border-color;
+    }
+  }
+}
+
+.accordion-panel {
+  &.slide-up {
+    overflow: hidden;
+    max-height: 0;
+    @include single-transition-set(max-height, 0.4s, cubic-bezier(0, 1, 0.5, 1));
+  }
+  &.slide-down {
+    max-height: 1000px;
+    overflow: hidden;
+    @include single-transition-set(max-height, 0.4s, ease-in);
+    
+  }
+}

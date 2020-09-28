@@ -1,0 +1,774 @@
+/* Master Styles */
+
+html {
+  font-size: 16px;
+  color: #3c3c3c;
+  @media #{$medium-and-down} {
+    font-size: 14px;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: $background-color;
+  font-weight: 300;
+  color: $dark-text;
+  
+  content{
+      padding: 0;
+      margin-bottom: 20px;
+      min-height: 300px;
+      // @media #{$medium-and-up} {
+      //     padding: 60px 0 0 0;
+      // }
+      // @media #{$large-and-up}{
+      //     padding: 60px 0 0 0;
+      // }
+
+      & .content-wrapper{
+        //max-width: 1200px;
+        padding: 0 13px;
+        margin: 0 auto;
+        @media #{$medium-and-up} {
+          // padding: 0 30px 0 30px;
+        }
+        @media #{$large-and-up}{
+          padding: 0 48px 0 48px;
+        }
+      }
+
+      & .content-small-wrapper{
+        padding: 0 13px;
+        margin: 0 auto;
+        max-width:1200px;
+        @media #{$medium-and-down} {
+          padding: 0 30px 0 30px;
+        }
+        @media #{$medium-and-up}{
+          // padding: 0 30px 0 30px;
+        }
+
+        &.static-wrapper{
+          max-width:1200px;
+          margin:0 auto;
+        }
+      }
+  }
+}
+h4.page-title{
+  background-color: #f6f6f6;
+  padding: 16px 10px;
+  margin: 0 (-$small-content-padding) 20px (-$small-content-padding);
+  @media #{$medium-and-up} {
+   margin: 0 0 20px 0;
+  }   
+}
+
+.error-message{
+  color: red;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+div {
+   :focus {
+    outline: none;
+  }
+}
+
+.red-link {
+  color: $secondary-color;
+}
+
+header {
+  height: $medium-header-height;
+  @media #{$small-and-down} {
+    height: $small-header-height;
+  }
+   @media (min-width: 768px) and (max-width: 1024px) {
+      height: $tab-header-height;
+   }
+  background-color: $header-background-color;
+}
+
+content,
+.header-wrapper,
+.footer-wrapper,
+.bottom-bs-modal .modal-wrapper {
+  padding: 0 $body-padding;
+  @include box-sizing;
+  // max-width: $content-max-width;
+  margin: 0 auto;
+  display: block;
+}
+
+.bottom-bs-modal .modal-wrapper {
+  @media #{$small-and-down} {
+    padding: 0;
+  }
+}
+
+section {
+  .section-wrapper {
+    padding: 10px 0;
+    @include box-sizing;
+    @media #{$medium-and-up} {
+      &:first-child {
+        padding: 20px 0 0 0;
+      }
+    }
+  }
+  .section-title {
+    padding: 5px 0;
+    font-size: $xxl-fontsize;
+    @include box-sizing;
+    @media #{$small-and-down} {
+      font-size: $l-fontsize;
+      padding: 15px;
+    }
+  }
+  .section-content {
+    width: 100%;
+  }
+  .section-content-wrapper {
+    display: inline-block;
+    width: 100%;
+    // height: 100%;
+    @include border-styling();
+    @include box-sizing;
+    .content-wrapper {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      font-size: $normal-fontsize;
+      padding: 20px;
+      @include box-sizing();
+    }
+  }
+}
+
+airasia-checkbox,
+airasia-input,
+airasia-dropdown,
+saved-card-dropdown {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  @media #{$small-and-down} {
+    padding: 5px;
+  }
+  @include box-sizing;
+}
+
+airasia-dropdown {
+  vertical-align: top;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+// Z-levels
+.z-depth-0 {
+  @include z-depth-0;
+}
+
+.z-depth-1 {
+  @include z-depth-1;
+}
+
+.z-depth-1-half {
+  @include z-depth-1-half;
+}
+
+.z-depth-2 {
+  @include z-depth-2;
+}
+
+.z-depth-3 {
+  @include z-depth-3;
+}
+
+.z-depth-4 {
+  @include z-depth-4;
+}
+
+.z-depth-5 {
+  @include z-depth-5;
+}
+
+.section-bottom {
+  padding: 25px 0;
+  @include box-sizing();
+}
+
+.inner-title {
+  font-weight: $bold-font;
+  font-size: $normal-fontsize;
+}
+
+.float-right {
+  float: right !important;
+}
+
+.float-left {
+  float: left !important;
+}
+
+.full-height,
+.full-width {
+  height: 100% !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.no-border {
+  border: none !important;
+}
+
+.header-wrapper {
+  height: 100%;
+  padding: 5px $body-padding;
+  background-color: $bright-text;
+  position: relative;
+}
+
+.modal {
+  max-height: 100% !important;
+}
+
+.lean-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+/*Page Loader*/
+
+.spinner {
+  margin: auto;
+  height: $loader-icon-dimension;
+  width: $loader-icon-dimension;
+  animation: rotate 1s infinite linear;
+  border: 8px solid #e60000;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.error-icon {
+  border-color: $secondary-color !important;
+  &:before {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    content: '\E000';
+    color: $secondary-color;
+    position: absolute;
+    right: $error-icon-right-position;
+    top: 25%;
+  }
+}
+
+
+/*main html css*/
+
+.mainPageHolder {
+  box-sizing: border-box;
+  opacity: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+app-root:empty+.mainPageHolder {
+  opacity: 1;
+  z-index: 100;
+  display: block;
+}
+
+
+/*set parent div to position:relative;*/
+
+.post-relative {
+  position: relative;
+}
+
+
+/*preloader*/
+
+.circle {
+  border-radius: 50%;
+}
+
+.left {
+  float: left !important;
+}
+
+.right {
+  float: right !important;
+}
+
+.float-none {
+  float: none !important;
+}
+
+.preloaderHolder {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  
+  /*background-color: $bright-color;
+  opacity: 0.8;*/
+}
+
+.preloader-table {
+  @include preloader-table;
+
+  &.white{
+     background-color: $light-background;
+  }
+  &.dark{
+    background-color: $dark-background;
+  }
+}
+
+.display-preloader-cell {
+  @include display-preloader-cell;
+}
+
+.fixedBoxSizing {
+  @include box-sizing;
+}
+
+@media #{$small-and-down}{
+  .hide-on-small-only{
+    display: none;
+  }
+  .hide-on-medium-and-up{
+    display: block;
+  }
+   .hide-on-medium-and-up-search{
+    display: block;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+   .hide-on-medium-and-up-search{
+    display: block;
+  }
+  
+}
+
+@media #{$medium-and-up}{
+  .hide-on-small-only{
+    display: none;
+  }
+  .hide-on-medium-and-up{
+    display: none;
+  }
+
+  
+}
+
+@media #{$large-and-up}{
+  .hide-on-small-only{
+    display: block;
+  } 
+   .hide-on-medium-and-up-search{
+    display: none;;
+  }
+}
+
+// FONT STYLE - Heading - Demi
+.hd-13{
+	font-size: $fz-13-web;
+	font-family: $df-bold-web;
+}
+.hd-15{
+	font-size: $fz-15-web;
+	font-family: $df-bold-web;
+}
+.hd-17{
+	font-size: $fz-17-web !important;
+	font-family: $df-bold-web !important;
+}
+.hd-19{
+	font-size: $fz-19-web;
+	font-family: $df-bold-web;
+}
+
+// FONT STYLE - Heading - Regular
+.hr-15{
+	font-size: $fz-15-web;
+	font-family: $df-normal-web;
+}
+.hr-19{
+	font-size: $fz-19-web;
+	font-family: $df-normal-web;
+}
+
+// FONT SIZES
+.fs-11{
+	font-size: $fz-11-web;
+}
+.fs-13{
+	font-size: $fz-13-web;
+}
+.fs-15{
+	font-size: $fz-15-web;
+}
+.fs-17{
+	font-size: $fz-17-web;
+}
+.fs-19{
+	font-size: $fz-19-web;
+}
+.fs-21{
+	font-size: $fz-21-web;
+}
+.fs-23{
+	font-size: $fz-23-web;
+}
+
+.ff-fulfillment-type {
+  font-family: $secondary-font-family;
+}
+
+// CLICKALBLE TEXT AND ELEMENTS
+.clickable-txt {
+	font-family: $df-normal-web;
+	font-weight: 600;
+
+	&:hover{
+		text-decoration: none;
+		color: $color-light-web;
+	}
+	&.colored {
+		color: $color-light-web;
+	}
+}
+	.clickable-txt:hover, .clickable-el:hover {
+		cursor: pointer;
+
+		&.clickable-txt.disabled:hover, .clickable-el.disabled:hover {
+			cursor: not-allowed;
+		}
+	}
+
+// DEFAULT NEW OS BUTTON
+button.default-btn {
+	width: auto;
+	height: 57px;
+    background: $color-light-web;
+	text-align: center;
+	border: 0;
+	padding: 0;
+
+	&.disabled {
+		background-color: $color-border2-web !important;
+		opacity: 1;
+		cursor: not-allowed;
+	}
+
+	span.button-text {
+		margin: 0 52px;		
+		color: $color-plain-web;
+		font-size: $fz-17-web;
+		font-family: $ff-bold-web;
+		line-height: 1.2em;
+	}
+}
+
+.txt-bld {
+	font-family: $df-bold-web !important;
+}
+
+.txt-regular {
+  font-family: $df-normal-web !important;
+}
+
+.default-btn:focus {
+  background-color: $color-light-web !important;
+}
+
+.has-tooltip-circle 
+{
+	display: inline-flex;
+	align-items: center;
+
+	.tooltip-circle{
+		margin-left: 5px;
+	}
+}
+
+// === AADF NEW STYLES  ===
+
+// BUTTONS
+.df-primary-btn {
+	// Button Text
+	font-family: $df-medium-web;
+	color: #FFF;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 24px;
+	text-align: center;
+
+	// Button Style
+	background: $df-red-primary;
+	mix-blend-mode: normal;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+	border: 1px solid $df-red-primary;
+	border-radius: 4px;
+	height: 48px;
+	width: 100%;
+
+	&:hover:not(:disabled) {
+		cursor: pointer;
+		background: $df-darker-red;
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+	}
+	&:focus {
+		// AADF - Temporary while Focus ring is not yet added
+		// background: $df-darker-red;
+		// box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+		// margin: 8px;
+		// border: 1px solid $df-blue-secondary;
+		// box-sizing: border-box;
+		// border-radius: 4px;
+		outline: none;
+		outline-offset: -4px;
+		background: $df-red-primary !important;
+	}
+	&:active {
+		background: $df-darker-red;
+		box-shadow: unset;
+		border-radius: 4px;
+	}
+	&:disabled {
+		color: $df-medium-gray;
+		background: $df-lighter-gray;
+		border: 1px solid $df-light-gray;
+		box-sizing: border-box;
+		box-shadow: none;
+		opacity: 1;
+	}
+	&:focus:disabled {
+		border: 0;
+	}
+}
+
+.df-secondary-btn {
+	// Button Text
+	font-family: $df-medium-web;
+	color: $df-red-primary;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 24px;
+	text-align: center;
+
+	// Button Style
+	cursor: pointer;
+	background: #FFFFFF;
+	mix-blend-mode: normal;
+	border: 1px solid $df-red-primary;
+	box-sizing: border-box;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	width: 100%;
+	
+	&:hover {
+		background: $df-lighter-red;
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+	}
+	&:focus {
+		// AADF - Temporary while Focus ring is not yet added
+		// background: $df-lighter-red;
+		// box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+		// margin: 8px;
+		// border: 1px solid $df-blue-secondary;
+		// box-sizing: border-box;
+		// border-radius: 6px;
+		outline: none;
+		outline-offset: -4px;
+		background: #FFFFFF !important;
+	}
+	&:active {
+		color: #FFF;
+		background: $df-darker-red;
+		box-shadow: unset;
+		border-radius: 4px;
+	}
+	&:disabled {
+		color: $df-medium-gray;
+		background: #FFF;
+		border: 1px solid $df-light-gray;
+		box-sizing: border-box;
+		opacity: 1;
+	}
+	&:focus:disabled {
+		border: 0;
+	}
+}
+
+.df-tertiary-btn {
+	// Button Text
+	font-family: $df-medium-web;
+	color: $df-black-primary;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 24px;
+	text-align: center;
+
+	// Button Style
+	cursor: pointer;
+	background: #FFFFFF;
+	mix-blend-mode: normal;
+	border: 1px solid $df-light-gray;
+	box-sizing: border-box;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	width: 100%;
+	
+	&:hover {
+		background: $df-lighter-red;
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+	}
+	&:focus {
+		// AADF - Temporary while Focus ring is not yet added
+		// background: $df-lighter-red;
+		// box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+		// margin: 8px;
+		// border: 1px solid $df-blue-secondary;
+		// box-sizing: border-box;
+		// border-radius: 6px;
+		outline: none;
+		outline-offset: -4px;
+		background: #FFFFFF !important;
+	}
+	&:active {
+		color: #FFF;
+		background: $df-darker-red;
+		box-shadow: unset;
+		border-radius: 4px;
+	}
+	&:disabled {
+		color: $df-medium-gray;
+		background: #FFF;
+		border: 1px solid $df-light-gray;
+		box-sizing: border-box;
+		opacity: 1;
+	}
+	&:focus:disabled {
+		border: 0;
+	}
+}
+
+// TEXT INPUT FIELD
+.form-group {
+	&.has-float-label {
+		font-family: $df-normal-web;
+		:focus {
+			label {
+				color: red;
+			}
+		}
+		input.form-control {
+			border: $df-border-default;
+			border-radius: $df-border-radius-default;
+			height: 48px;
+			line-height: 21px;
+			font-family: $df-normal-web;
+			font-weight: 600;
+			color: $df-black-primary;
+			
+			&:focus:not([readonly]){
+				border-bottom: $df-border-default;
+				box-shadow: none;
+			}
+			&.valid-input {
+				border: $df-border-default !important;
+			}
+			&:focus + *.form-control-placeholder.active,
+			&.valid-input:not(:focus) + *.form-control-placeholder {
+				top: 0.5em !important;
+			}
+			&:placeholder-shown:not(:focus) + *.form-control-placeholder.active {
+				top: 1em !important;
+			}
+			@media #{$small-and-down} { 
+				&:placeholder-shown:not(:focus) + *.form-control-placeholder.active {
+					top: 1.4em !important;
+				}
+			}
+			&.err-brdr {
+				border-color: $df-red-primary;
+
+				&+ *.form-control-placeholder.active {
+					color: $df-red-primary;
+				}
+			}
+		}
+
+		label.form-control-placeholder {
+			font-weight: normal !important;
+			line-height: 1.15;
+
+			&:not(.active) {
+				top: 1em !important;
+			}
+			@media #{$small-and-down} { 
+				&:not(.active) {
+					top: 1.4em !important;
+				}
+			}
+			&.active, &:focus-visible {
+				color: $df-dark-gray;
+				font-weight: normal !important;
+				font-family: $df-normal-web !important;
+			}
+		}
+	}
+}
+
+
+
