@@ -106,5 +106,20 @@ i.icon-blue {
 
 span.font-invention {
   font-family: "Lucida Console", Courier, monospace;
-  font-weight: bold;
+  //font-weight: bold;
+}
+
+.active a span {
+  color: #0070d2;
+  //background-color: #1f1bd8;
+}
+
+.active a {
+  color: #0070d2 !important;
+  //background-color: #1f1bd8;
+}
+
+.active {
+  color: #0070d2 !important;
+  //background-color: #1f1bd8;
 }

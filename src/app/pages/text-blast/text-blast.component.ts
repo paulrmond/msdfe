@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient} from '../../services/http.services'
+import { HttpClient} from '../../services/http.services';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { isEmptyObject } from 'jquery';
 
 @Component({
   selector: 'app-text-blast',
@@ -8,9 +10,11 @@ import { HttpClient} from '../../services/http.services'
 })
 export class TextBlastComponent implements OnInit {
   contactList;
+  canSendMessage;
   emailAddressArray= []
   constructor(
-    private http : HttpClient
+    private http : HttpClient,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit() {
@@ -79,19 +83,46 @@ export class TextBlastComponent implements OnInit {
 
   }
 
+  openMediumModal( mediumModalContent ) {
+    this.modalService.open( mediumModalContent );
+  }
+  
   getMessage(){
     let messageDom = document.getElementById('textblast')
     return messageDom['value'];
   }
 
-  postMessage(){
+  postMessage(mediumModalContent){
+    
+    if (isEmptyObject(this.getMessage())) {
+      console.log('Empty');
+      this.canSendMessage = false;
+    } else {
+      console.log('Not empty');
+      this.canSendMessage = true;
+    }
 
-    this.http.postMessage(this.postBody, this.getMessage()).subscribe( (data:any) =>{
-      // this.contactList = data;
+    if (isEmptyObject(this.postBody)) {
+      console.log('Empty list');
+      this.canSendMessage = false;
+    } else {
+      console.log('Not empty list');
+      this.canSendMessage = true;
+    }
+    console.log(this.getMessage());
+    console.log(this.postBody);
 
-    },error=> console.log(error))
+    if(this.canSendMessage){
+      this.http.postMessage(this.postBody, this.getMessage()).subscribe( (data:any) =>{
+        // this.contactList = data;
+      },error=> console.log(error),()=>{this.modalService.open( mediumModalContent )});
+      setTimeout(() => {
+        this.modalService.open( mediumModalContent );
+      }, 1500);
+    }else{
+      //this.modalService.open( mediumModalContent );
+    }
 
+    
   }
-  
-
 }

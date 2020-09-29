@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient} from '../../services/http.services'
 
 @Component({
@@ -11,7 +12,8 @@ export class DocumentsComponent implements OnInit {
   fileToUpload: File = null;
   documentList: any = [];
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit() {
@@ -41,7 +43,7 @@ export class DocumentsComponent implements OnInit {
     console.log(this.fileToUpload)
   }
 
-  uploadFileToActivity() {
+  uploadFileToActivity(mediumModalContents) {
     const now = new Date();
     const offsetMs = now.getTimezoneOffset() * 60 * 1000;
     const dateLocal = new Date(now.getTime() - offsetMs);
@@ -55,6 +57,10 @@ export class DocumentsComponent implements OnInit {
           }, error => {
             console.log(error);
           });
+          setTimeout(() => {
+            this.modalService.open( mediumModalContents );
+          }, 1500);
+          
     }
     
   }

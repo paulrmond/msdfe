@@ -8,34 +8,27 @@
   </div>
 </div>
 
-<div class="custom-container textarea-padding">
-  <div class="row">
+<div class="col-lg-12 grid-margin">
+  <!-- <div class="row">
     <div class="col s12">
       <textarea id="textblast"  placeholder="enter your message..." name="textblast" rows="50" cols="50">
         </textarea>
     </div>
+  </div> -->
+  
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Type your message here:</label>
+    <textarea id="textblast" class="form-control" name="textblast" rows="10"></textarea>
   </div>
   <div class="row">
-    <div class="col s12 text-right">
-      <button class="custom-button" (click)="postMessage()">
+    <div class="col s12 text-left">
+      <button type="button" class="btn btn-info btn-fw" (click)="postMessage(mediumModalContent)">
         Send
       </button>
     </div>
   </div>
-  <div class="row region-padding">
-    <div class="col s12">
-      <label for="region">Choose a Region: </label>
-        <select name="region-name" id="region">
-          <option value="Cebu">Cebu</option>
-          <option value="Bukidnon">Bukidnon</option>
-          <option value="IloIlo">IloIlo</option>
-          <option value="Misamis Occidental">Misamis Occidental</option>
-          <option value="South Cotabato">South Cotabato</option>
-          <option value="Davao del Sur">Davao del Sur</option>
-        </select>
-    </div>
-  </div>
-  <div class="row" *ngFor="let contact of contactList; let i = index">
+
+  <!-- <div class="row" *ngFor="let contact of contactList; let i = index">
     <div class="col s3">
       <p>{{contact?.name}}</p>
     </div>
@@ -51,5 +44,127 @@
       <input class="email-class" type="checkbox" (change)="checkValue($event, 'email', contact)" id="email{{i}}" />
       <label for="email{{i}}">EMAIL</label>
     </div>
+  </div> -->
+</div>
+
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">LIst of contacts</h4>
+      <div class="btn-group">
+        <button type="button" class="btn btn-info">Choose a Region:</button>
+        <div class="btn-group" ngbDropdown>
+          <button type="button" class="btn btn-info dropdown-toggle-split" id="dropdownMenuSplitButton1" ngbDropdownToggle>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownMenuSplitButton1">
+            <h6 class="dropdown-header">Cebu</h6>
+            <a class="dropdown-item">Bukidnon</a>
+            <a class="dropdown-item">IloIlo</a>
+            <a class="dropdown-item">Misamis Occidental</a>
+            <a class="dropdown-item">South Cotabato</a>
+            <a class="dropdown-item">Davao del Sur</a>
+            <!-- <div class="dropdown-divider"></div>
+            <a class="dropdown-item">Separated link</a> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="row region-padding">
+        <div class="col s12">
+          <label for="region">Choose a Region: </label>
+            <select name="region-name" id="region">
+              <option value="Cebu">Cebu</option>
+              <option value="Bukidnon">Bukidnon</option>
+              <option value="IloIlo">IloIlo</option>
+              <option value="Misamis Occidental">Misamis Occidental</option>
+              <option value="South Cotabato">South Cotabato</option>
+              <option value="Davao del Sur">Davao del Sur</option>
+            </select>
+        </div>
+      </div> -->
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>
+                User
+              </th>
+              <th>
+                Name
+              </th>
+              <th>
+                SMS
+              </th>
+              <th>
+                Vber
+              </th>
+              <th>
+                Email
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let contact of contactList; let i = index">
+              <td class="py-1">
+                <img src="assets/images/User_icon.png" alt="image"/>
+              </td>
+              <td>
+                {{contact?.name}}
+              </td>
+              <td>
+                <input class="sms-class" type="checkbox" (change)="checkValue($event, 'sms', contact)" id="sms{{i}}" />
+              </td>
+              <td>
+                <input class="viber-class" type="checkbox" id="viber{{i}}" />
+              </td>
+              <td>
+                <input class="email-class" type="checkbox" (change)="checkValue($event, 'email', contact)" id="email{{i}}" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
+
+
+       
+ <!-- Dummy Modal Starts -->
+ <div class="modal demo-modal" hidden="hidden">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Message Blast</h5>
+        <button type="button" class="close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> 
+      <div class="modal-body">
+        <p>Message succesfully sent!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Dummy Modal Ends -->
+        <ng-template #mediumModalContent let-modal class="modal fade" id="exampleModal-2" aria-labelledby="exampleModalLabel-2">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel-2">Message Blast</h5>
+              <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Message succesfully sent!</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" (click)="modal.close()">OK</button>
+            </div>
+          </div>
+        </ng-template>
