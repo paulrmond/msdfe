@@ -63,8 +63,12 @@
       <p class="card-description">
         Click the upload button and select file to upload.
       </p>
+      <div class="col-12 grid-margin stretch-card no-padding">
+          <input matInput [matDatepicker]="picker" (dateChange)="_selectedDate($event)">
+          <mat-datepicker #picker></mat-datepicker>
+        <button mat-raised-button (click)="picker.open()">Choose date</button>
+      </div>
       <form class="form-inline">
-
         <div class="input-group mb-2 mr-sm-2">
           <input type="file"
                id="file-upload"

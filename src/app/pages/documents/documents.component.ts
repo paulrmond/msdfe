@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient} from '../../services/http.services'
-
+import * as moment from 'moment';
 @Component({
   selector: 'app-documents',
   templateUrl: './documents.component.html',
@@ -11,6 +11,7 @@ export class DocumentsComponent implements OnInit {
   subfolderIndex = null;
   fileToUpload: File = null;
   documentList: any = [];
+  selectedDate;
   constructor(
     private http: HttpClient,
     private modalService: NgbModal
@@ -25,7 +26,7 @@ export class DocumentsComponent implements OnInit {
 
     },error=> console.log(error))
 
-
+    this.selectedDate = this.getCurrentDate();
     
   }
 
@@ -44,15 +45,11 @@ export class DocumentsComponent implements OnInit {
   }
 
   uploadFileToActivity(mediumModalContents) {
-    const now = new Date();
-    const offsetMs = now.getTimezoneOffset() * 60 * 1000;
-    const dateLocal = new Date(now.getTime() - offsetMs);
-    const dateString = dateLocal.toISOString().slice(0, 10).replace(/-/g, "-").replace("T", " ");
-    console.log(dateString)
+    
     // let fullPath = document.getElementById('file-upload')
     // this.fileToUpload = fullPath['value'];
-    if(this.fileToUpload){
-      this.http.postFile(this.fileToUpload , dateString).subscribe(data => {
+    if(this.fileToUpload && this.selectedDate){
+      this.http.postFile(this.fileToUpload , this.selectedDate).subscribe(data => {
           // do something, if upload success
           }, error => {
             console.log(error);
@@ -78,6 +75,21 @@ export class DocumentsComponent implements OnInit {
       // },error=> console.log(error))
     }
    
+  }
+
+  _selectedDate(event){
+    if(event && event.value){
+      console.log(moment(event.value).format('YYYY-MM-DD'))
+      this.selectedDate = moment(event.value).format('YYYY-MM-DD')
+    }
+  }
+
+  getCurrentDate(){
+    const now = new Date();
+    const offsetMs = now.getTimezoneOffset() * 60 * 1000;
+    const dateLocal = new Date(now.getTime() - offsetMs);
+    const dateString = dateLocal.toISOString().slice(0, 10).replace(/-/g, "-").replace("T", " ");
+    return dateString;
   }
 
 }

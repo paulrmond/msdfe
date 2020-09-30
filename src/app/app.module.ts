@@ -26,6 +26,7 @@ import { SeminarComponent } from './pages/seminar/seminar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { FaqComponent } from './pages/faq/faq.component';
+import { MatSliderModule, MatNativeDateModule, MatDatepickerModule, MatFormFieldModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -57,9 +58,13 @@ import { FaqComponent } from './pages/faq/faq.component';
     ReactiveFormsModule,
     ChartsModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    MatSliderModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule
   ],
-  providers: [],
+  providers: [MatDatepickerModule, MatFormFieldModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

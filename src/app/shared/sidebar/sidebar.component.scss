@@ -107,17 +107,17 @@
         }
       }
 
-      &.active {
-        .nav-link {
-          .menu-title {
-            color: $sidebar-menu-active-color;
-            font-family: $type1-medium;            
-          }
-          i {
-            color: theme-color(primary);
-          }
-        }
-      }
+      // &.active {
+      //   .nav-link {
+      //     .menu-title {
+      //       color: $sidebar-menu-active-color;
+      //       font-family: $type1-medium;            
+      //     }
+      //     i {
+      //       color: theme-color(primary);
+      //     }
+      //   }
+      // }
 
       &:hover{
         background: $sidebar-menu-hover-bg;

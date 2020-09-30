@@ -12,7 +12,7 @@ import { FaqComponent } from './pages/faq/faq.component';
 
 const routes: Routes = [
   //{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: '', component: WelcomeComponent },
+  { path: 'welcome', component: WelcomeComponent },
   { path: 'seminar', component: SeminarComponent },
   { path: 'promotion', component: PromotionComponent },
   { path: 'text-blast', component: TextBlastComponent },
@@ -30,6 +30,7 @@ const routes: Routes = [
   { path: 'apps', loadChildren: () => import('./apps/apps.module').then(m => m.AppsModule) },
   { path: 'user-pages', loadChildren: () => import('./user-pages/user-pages.module').then(m => m.UserPagesModule) },
   { path: 'error-pages', loadChildren: () => import('./error-pages/error-pages.module').then(m => m.ErrorPagesModule) },
+  { path: '**', redirectTo: '/welcome', pathMatch: 'full' },
 ];
 
 @NgModule({
