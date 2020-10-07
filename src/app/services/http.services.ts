@@ -9,7 +9,7 @@ import {Observable} from 'rxjs';
   })
 export class HttpClient {
     
-    BASE_URL = 'http://www.msdme.com/msd/api/'
+    BASE_URL = 'https://localhost:44329/api/'
 
 
 	constructor(
@@ -78,7 +78,7 @@ export class HttpClient {
     }
     
 
-    postFile(filePath, eventDate){
+    postFile(filePath, eventDate,readme){
 
         let body = {
             EventDate: eventDate,
@@ -92,12 +92,13 @@ export class HttpClient {
         let formData = new FormData();
         formData.append('file', filePath)
         formData.append('EventDate',eventDate)
+        formData.append('Readme',readme)
         return this.post(this.BASE_URL+ 'upload', formData).pipe(map(resp =>  resp.json()));
     }
 
-    getDownloadFile(eventDate, fileName, contentType){
-        let queryString ="?EventDate=" + eventDate + "&Filename=" + fileName + "&ContentType=" + contentType;
-
+    getDownloadFile(eventDate, fileName, contentType,docid){
+        //let queryString ="?EventDate=" + eventDate + "&Filename=" + fileName + "&ContentType=" + contentType;
+        let queryString ="?id=" + docid;
         // let blob:any = new Blob([response.blob()], { type: 'text/json; charset=utf-8' });
         // let headers;
         // headers = new Headers();

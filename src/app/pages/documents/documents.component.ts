@@ -44,12 +44,16 @@ export class DocumentsComponent implements OnInit {
     console.log(this.fileToUpload)
   }
 
+  getReadme(){
+    let messageDom = document.getElementById('readme')
+    return messageDom['value'];
+  }
+
   uploadFileToActivity(mediumModalContents) {
-    
     // let fullPath = document.getElementById('file-upload')
     // this.fileToUpload = fullPath['value'];
     if(this.fileToUpload && this.selectedDate){
-      this.http.postFile(this.fileToUpload , this.selectedDate).subscribe(data => {
+      this.http.postFile(this.fileToUpload , this.selectedDate,this.getReadme()).subscribe(data => {
           // do something, if upload success
           }, error => {
             console.log(error);
@@ -65,7 +69,7 @@ export class DocumentsComponent implements OnInit {
   downloadFile(file){
     console.log(file)
     if(file){
-      this.http.getDownloadFile(file.timeCreated,file.fileName,file.contentType)
+      this.http.getDownloadFile(file.timeCreated,file.fileName,file.contentType,file.docid)
       // .subscribe((data:any) =>{
         // console.log(data)
         // // var downloadURL = URL.createObjectURL(data);
